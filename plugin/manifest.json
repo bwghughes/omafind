@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "ben.omafind",
+  "name": "omafind",
+  "version": "0.1.0",
+  "author": "Ben Hughes",
+  "license": "MIT",
+  "description": "Little Snitch for Omarchy: see which apps talk to the network, get told when a new one does, and block the ones you don't trust.",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "omafind",
+    "description": "Per-app network connections with first-connection alerts and blocking.",
+    "category": "Network",
+    "aliases": [
+      "snitch",
+      "firewall",
+      "connections",
+      "network monitor"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "binary": "/usr/local/bin/omafind",
+      "interval": 1000,
+      "showSystem": true
+    },
+    "schema": [
+      {
+        "key": "interval",
+        "type": "integer",
+        "label": "Poll interval (ms)",
+        "min": 250,
+        "max": 10000,
+        "step": 250,
+        "defaultValue": 1000
+      },
+      {
+        "key": "showSystem",
+        "type": "boolean",
+        "label": "Show connections from system users",
+        "defaultValue": true
+      }
+    ]
+  }
+}
